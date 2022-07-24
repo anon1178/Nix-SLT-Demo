@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nix-TTS: Lightweight and End-to-End Text-to-Speech via Module-wise Distillation</title>
+    <style>
+      div {
+        margin-bottom: 64px;
+      }
+      .first-col {
+        padding-right: 40px;
+        white-space: nowrap;
+      }
+      .text {
+        color: #000000;
+      }
+      * {
+        font-family: Helvetica;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <article>
+      <header>
+        <h1>Nix-TTS: Lightweight and End-to-End Text-to-Speech via Module-wise Distillation</h1>
+        <h3>Audio Demo for 2022 IEEE Spoken Language Technology Workshop (SLT 2022)</h3>
+      </header>
+    </article>
+    <div>
+      <b>Abstract:</b> Several solutions for lightweight TTS have shown promising results. Still, they either rely on a hand-crafted design that reaches non-optimum size or use a neural architecture search but often suffer training costs. We present Nix-TTS, a lightweight TTS achieved via knowledge distillation to a high-quality yet large-sized, non-autoregressive, and end-to-end (vocoder-free) TTS teacher model. Specifically, we offer module-wise distillation, enabling flexible and independent distillation to the encoder and decoder module. The resulting Nix-TTS inherited the advantageous properties of being non-autoregressive and end-to-end from the teacher, yet significantly smaller in size, with only 5.23M parameters or up to 89.34% reduction of the teacher model; it also achieves over 3.04x and 8.36x inference speedup on Intel-i7 CPU and Raspberry Pi 3B respectively and still retains a fair voice naturalness and intelligibility compared to the teacher model. We provide audio samples of Nix-TTS.
+      <div>
+
+        <p><strong>Abstract Read with Nix-TTS</strong>:</p>
+        <audio controls preload="none"><source src="wavs/nix/abstract.wav"></audio>
+      </div>
+    </div>
+
+    <div>
+      <a name="ss"><h2>LJ Speech Samples</h2></a>
+
+      <hr>
+
+      <table>
+        <tbody>
+        <tr>
+          <td>
+            <h4>Input Text</h4>
+          </td>
+          <td class="text">
+            <strong>VITS</strong> (Teacher Model) (<strong>29.08M</strong> Params)
+          </td>
+          <td class="text">
+            <strong>Nix-TTS</strong> (<strong>Proposed Distilled Model</strong>) (<strong>5.23M</strong> Params)
+          </td>
+          <td class="text">
+            <strong>BVAE-TTS</strong> + HifiGAN (Lightweight TTS Baseline) (<strong>15.99M</strong> + 13.93M Params)
+          </td>
+          <td class="text">
+            <strong>SpeedySpeech</strong> + HifiGAN (Lightweight TTS Baseline) (<strong>4.52M</strong> + 13.93M</strong> Params)
+          </td>
+
+        </tr>
+        <tr>
+          <td class="first-col">"And there may be only nine."</td>
+          <td><audio controls="" preload="none"><source src="wavs/vits/LJ024-0019.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/nix/LJ024-0019.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/bvae/LJ024-0019.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/speedy/LJ024-0019.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="first-col">"After a moment's hesitation, she told me that he worked at the Texas School Book Depository near the downtown area of Dallas."</td>
+          <td><audio controls="" preload="none"><source src="wavs/vits/LJ047-0158.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/nix/LJ047-0158.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/bvae/LJ047-0158.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/speedy/LJ047-0158.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="first-col">"In the face of impediments confessedly discouraging."</td>
+          <td><audio controls="" preload="none"><source src="wavs/vits/LJ007-0071.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/nix/LJ007-0071.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/bvae/LJ007-0071.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/speedy/LJ007-0071.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="first-col">"Such of the Babylonians as witnessed the treachery took refuge in the temple of Jupiter Belus."</td>
+          <td><audio controls="" preload="none"><source src="wavs/vits/LJ028-0340.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/nix/LJ028-0340.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/bvae/LJ028-0340.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/speedy/LJ028-0340.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="first-col">"Meanwhile, Chief Curry ordered the police base station to notify Parkland Hospital that the wounded President was en route."</td>
+          <td><audio controls="" preload="none"><source src="wavs/vits/LJ031-0008.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/nix/LJ031-0008.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/bvae/LJ031-0008.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/speedy/LJ031-0008.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="first-col">"His letter to the Corporation, under date fourth June."</td>
+          <td><audio controls="" preload="none"><source src="wavs/vits/LJ019-0180.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/nix/LJ019-0180.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/bvae/LJ019-0180.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/speedy/LJ019-0180.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="first-col">"And he could disassemble it more rapidly."</td>
+          <td><audio controls="" preload="none"><source src="wavs/vits/LJ033-0055.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/nix/LJ033-0055.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/bvae/LJ033-0055.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/speedy/LJ033-0055.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="first-col">"And beyond it was a room called the "wine room," because formerly used for the sale of wine, but"</td>
+          <td><audio controls="" preload="none"><source src="wavs/vits/LJ002-0105.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/nix/LJ002-0105.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/bvae/LJ002-0105.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/speedy/LJ002-0105.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="first-col">"From defection to return to Fort Worth."</td>
+          <td><audio controls="" preload="none"><source src="wavs/vits/LJ047-0015.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/nix/LJ047-0015.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/bvae/LJ047-0015.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/speedy/LJ047-0015.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="first-col">"The Ishtar gateway leading to the palace was encased with beautiful blue glazed bricks."</td>
+          <td><audio controls="" preload="none"><source src="wavs/vits/LJ028-0502.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/nix/LJ028-0502.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/bvae/LJ028-0502.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="wavs/speedy/LJ028-0502.wav"></audio></td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </body>
+
+</html>
